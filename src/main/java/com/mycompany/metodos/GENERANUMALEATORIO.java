@@ -58,7 +58,7 @@ public class GENERANUMALEATORIO {
          */
         //bucle para los intentos del juego
         do {
-            if (numeroAleatorio == numero) {
+            if (numeroAleatorio == pedirNumeroEntero()) {
                 System.out.println("HAS ACERTADO!");
                 //una vez que ha acertado se para le juego
                 break;
@@ -74,7 +74,6 @@ public class GENERANUMALEATORIO {
             }
             contadorIntentos++;
         } while (contadorIntentos != intentosMax);
-        
         System.out.println("FIN DEL JUEGO");
     }
 
