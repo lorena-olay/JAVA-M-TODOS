@@ -54,9 +54,11 @@ public class GENERANUMALEATORIO {
         condicional para saber si el número aleatorio generado por la máquina 
         es igual que lo que introduce el usuario
          */
+        //bucle para los intentos del juego
         do {
             if (numeroAleatorioEntre(100, 0) == pedirNumeroEntero()) {
                 System.out.println("HAS ACERTADO!");
+                break;
             } else {
                 System.out.println("PERDISTE");
             }
