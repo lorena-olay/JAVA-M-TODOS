@@ -48,7 +48,9 @@ public class GENERANUMALEATORIO {
     public static void main(String[] args) {
         final int intentosMax = 3;
         int contadorIntentos = 0;
-
+        int numeroAleatorio, numero;
+        numeroAleatorio = numeroAleatorioEntre(100, 0);
+        numero = pedirNumeroEntero();
         // TODO code application logic here
         /*
         condicional para saber si el número aleatorio generado por la máquina 
@@ -56,14 +58,24 @@ public class GENERANUMALEATORIO {
          */
         //bucle para los intentos del juego
         do {
-            if (numeroAleatorioEntre(100, 0) == pedirNumeroEntero()) {
+            if (numeroAleatorio == numero) {
                 System.out.println("HAS ACERTADO!");
+                //una vez que ha acertado se para le juego
                 break;
             } else {
                 System.out.println("PERDISTE");
+                if (numeroAleatorio < numero) {
+                    System.out.println("Pista");
+                    System.out.println("El número es menor");
+                } else {
+                    System.out.println("Pista");
+                    System.out.println("El número es mayor");
+                }
             }
             contadorIntentos++;
         } while (contadorIntentos != intentosMax);
+        
+        System.out.println("FIN DEL JUEGO");
     }
 
 }
