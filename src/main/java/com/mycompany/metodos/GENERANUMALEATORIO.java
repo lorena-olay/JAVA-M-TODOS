@@ -35,9 +35,20 @@ public class GENERANUMALEATORIO {
     }
 
     //método para número aleatorio entre 2 números, el primero tiene que ser mayor que el segundo
+    /*hacer que el mayor sea el primero, catch*/
     public static int numeroAleatorioEntre(int numero, int numero1) {
         Random numAleatorio = new Random();
-        int numeroAleatorio = numAleatorio.nextInt(numero - numero1 + 1) + numero1;
+        Scanner sc = new Scanner(System.in);
+        boolean seguir = true;
+        do {
+            try {
+                int numeroAleatorio = numAleatorio.nextInt(numero - numero1 + 1) + numero1;
+                seguir = false;
+            } catch (IllegalArgumentException ime) {
+                int numeroAleatorio = numAleatorio.nextInt(numero1 - numero + 1) + numero;
+                sc.nextLine();
+            }
+        } while (seguir);
         //System.out.println("Numero aleatorio " + numeroAleatorio);
         return numeroAleatorio;
     }
@@ -46,11 +57,10 @@ public class GENERANUMALEATORIO {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        final int intentosMax = 2;
+        final int intentosMax = 3;
         int contadorIntentos = 0;
         int numeroAleatorio, numero;
-        numeroAleatorio = numeroAleatorioEntre(100, 0);
-        numero = pedirNumeroEntero();
+        numeroAleatorio = numeroAleatorioEntre(0, 10);
         // TODO code application logic here
         /*
         condicional para saber si el número aleatorio generado por la máquina 
@@ -58,9 +68,10 @@ public class GENERANUMALEATORIO {
          */
         //bucle para los intentos del juego
         do {
-            if (numeroAleatorio == pedirNumeroEntero()) {
+            numero = pedirNumeroEntero();
+            if (numeroAleatorio == numero) {
                 System.out.println("HAS ACERTADO!");
-                //una vez que ha acertado se para le juego
+                //una vez que ha acertado se para el juego
                 break;
             } else {
                 System.out.println("PERDISTE");
@@ -74,6 +85,7 @@ public class GENERANUMALEATORIO {
             }
             contadorIntentos++;
         } while (contadorIntentos != intentosMax);
+        System.out.println("El número aleatorio era " + numeroAleatorio);
         System.out.println("FIN DEL JUEGO");
     }
 
