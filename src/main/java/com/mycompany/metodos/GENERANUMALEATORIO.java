@@ -38,18 +38,35 @@ public class GENERANUMALEATORIO {
     /*hacer que el mayor sea el primero, catch*/
     public static int numeroAleatorioEntre(int numero, int numero1) {
         Random numAleatorio = new Random();
-        Scanner sc = new Scanner(System.in);
-        boolean seguir = true;
+        int numeroAleatorio;
+        /*
+        if(numero>numero1){
+            int puesto1 = numAleatorio.nextInt(numero - numero1 + 1) + numero1;
+        }else{
+            int puesto2 = numAleatorio.nextInt(numero1 - numero + 1) + numero;
+        }
+        */
+        //Scanner sc = new Scanner(System.in);
+        //boolean seguir = true;
+        /*
         do {
             try {
-                int numeroAleatorio = numAleatorio.nextInt(numero - numero1 + 1) + numero1;
+                numeroAleatorio = numAleatorio.nextInt(numero - numero1 + 1) + numero1;
                 seguir = false;
             } catch (IllegalArgumentException ime) {
-                int numeroAleatorio = numAleatorio.nextInt(numero1 - numero + 1) + numero;
+                numeroAleatorio = numAleatorio.nextInt(numero1 - numero + 1) + numero;
                 sc.nextLine();
             }
         } while (seguir);
+         */
         //System.out.println("Numero aleatorio " + numeroAleatorio);
+        
+        if (numero > numero1) {
+            numeroAleatorio = numAleatorio.nextInt(numero - numero1 + 1) + numero1;
+        } else {
+            numeroAleatorio = numAleatorio.nextInt(numero1 - numero + 1) + numero;
+        }
+        
         return numeroAleatorio;
     }
 
