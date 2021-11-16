@@ -22,7 +22,7 @@ public class GENERANUMALEATORIO {
         boolean seguir = true;
         do {
             try {
-                JOptionPane.showMessageDialog(null, "Escribe el número entero");
+                System.out.println("Escribe un número");
                 numero = sc.nextInt();
                 seguir = false;
             } catch (InputMismatchException ime) {
@@ -46,7 +46,7 @@ public class GENERANUMALEATORIO {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        final int intentosMax = 3;
+        final int intentosMax = 2;
         int contadorIntentos = 0;
         int numeroAleatorio, numero;
         numeroAleatorio = numeroAleatorioEntre(100, 0);
